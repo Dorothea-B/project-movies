@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Button from "styles/Button";
 import { useNavigate } from "react-router-dom";
 
 
@@ -64,29 +62,9 @@ text-align: left;
 cursor: pointer;
 `
 
-const Favoritebutton = styled.button`
-width: 150px;
-height: 50px;
-background: transparent;
-color: white;
-border: transparent;
-outline: none;
-font-size: 18px;
-font-weight: bold;
-appearance: none;
-padding: 10px;
-text-align: center;
-cursor: pointer;
 
 
-
-&:focus {
-  border: solid 2px red;
-}
-`
-
-
-const Header = ( { movieList, setMovieList, favourite, setLikes } ) => {
+const Header = ( { movieList, setMovieList } ) => {
 
     //This state to filter  movies - TESTING
     const [sorted, setSorted] = useState('');
@@ -95,7 +73,6 @@ const Header = ( { movieList, setMovieList, favourite, setLikes } ) => {
     // Use Effect for sort dropdow menus
     useEffect(() => {
 
-      setLikes(false)
 
       if (sorted === 'latest') {
        
@@ -117,7 +94,6 @@ const Header = ( { movieList, setMovieList, favourite, setLikes } ) => {
    
     const onBackBtnClick = () => {
       navigate("/");
-      setLikes(false)
 
   }
 
@@ -126,9 +102,9 @@ const Header = ( { movieList, setMovieList, favourite, setLikes } ) => {
                 <Logo onClick={onBackBtnClick} >                
                 Thea &amp; Suki's Cinema
                 </Logo>
-                <Favoritebutton onClick={() => setLikes(true)} >
-                Favorites
-                </Favoritebutton>
+                {/* <Favoritebutton onClick={() => setLikes(true)} > */}
+
+               
                 <SortMenu value={sorted} onChange={(e) => setSorted(e.target.value)}>
                     <option value='' disabled>Sort by</option>
                     <option value='latest'>Latest</option>

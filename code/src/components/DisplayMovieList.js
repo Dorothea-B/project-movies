@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Button from "styles/Button";
 
 
 const CoverArt = styled.img`
@@ -77,7 +76,7 @@ const Hover = styled.div`
   
 `
 
-const DisplayMovieList = ( { movie, onLikeBtnClick } ) => {
+const DisplayMovieList = ( { movie } ) => {
    
     return (
         <Link key={movie.id} to={`details/${movie.id}`}>
@@ -86,9 +85,6 @@ const DisplayMovieList = ( { movie, onLikeBtnClick } ) => {
            <CoverArt src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}/>
              <Hover>
              <Title>{movie.title}</Title>
-             
-             <Button id={movie.id} onClick={(e) => { onLikeBtnClick(e,movie.id, movie) }} fontsize='3rem' color="white"  top='5%' left='75%' ><ion-icon name="star-outline"></ion-icon></Button>
-
              <Release>{movie.release_date}</Release>
              </Hover>
                
